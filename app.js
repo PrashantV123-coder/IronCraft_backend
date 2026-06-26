@@ -15,6 +15,20 @@ const authUser = require('./middlewares/auth.middleware.js');
 const authSeller = require('./middlewares/auth.middleware.js');
 
 
+//Middleware to handle cors
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://iron-craft-chi.vercel.app",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
+
+
 connectToDB();
 
 
